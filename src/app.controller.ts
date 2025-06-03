@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { AppService } from './app.service';
-import { CreateTaskDto } from './dto/create-task.dto';
+import { CreateTaskDto, FindAllTasksQueryDto } from './dto/create-task.dto';
 
 @Controller()
 export class AppController {
@@ -13,6 +13,11 @@ export class AppController {
 
   @Post('/task')
   public createTask(@Body() dto: CreateTaskDto) {
+    return this.appService.createTask();
+  }
+
+  @Get('/')
+  public readTasks(@Query() dto: FindAllTasksQueryDto) {
     return this.appService.createTask();
   }
 }
