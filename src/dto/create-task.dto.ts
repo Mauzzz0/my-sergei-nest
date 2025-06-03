@@ -18,7 +18,7 @@ export class CreateTaskDto {
 
 export class FindAllTasksQueryDto {
   @IsNumber()
-  @ApiProperty()
+  @ApiProperty({ description: 'Сколько нужно взять' })
   limit: number;
 
   @IsNumber()
